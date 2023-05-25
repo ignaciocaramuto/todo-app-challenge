@@ -1,6 +1,47 @@
-<form class="">
-    <mat-form-field class="example-full-width">
-      <mat-label>Task to do</mat-label>
-      <input matInput placeholder="Ex. Wash the dishes" value="">
-    </mat-form-field>
-</form>
+<div class="container">
+    <form [formGroup]="taskForm" class="" (ngSubmit)="addTask()">
+        <mat-form-field class="example-full-width">
+          <mat-label>Task to do</mat-label>
+          <input matInput placeholder="Ex. Wash the dishes" value="" formControlName="name">
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Add task</button>
+    </form>
+
+    <table mat-table [dataSource]="tasks" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let task"> {{task.id}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let task"> {{task.name}} </td>
+        </ng-container>
+      
+        <!-- Priority Column -->
+        <ng-container matColumnDef="priority">
+          <th mat-header-cell *matHeaderCellDef> Priority </th>
+          <td mat-cell *matCellDef="let task"> {{task.priority}} </td>
+        </ng-container>
+      
+        <!-- Done Column -->
+        <ng-container matColumnDef="done">
+          <th mat-header-cell *matHeaderCellDef> Done </th>
+          <td mat-cell *matCellDef="let task"> <mat-checkbox class="example-margin" [checked]="task.done"></mat-checkbox> </td>
+        </ng-container>
+
+        <!-- Action Column -->
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>  </th>
+            <td mat-cell *matCellDef="let task"> 
+                <mat-icon aria-hidden="false" fontIcon="delete" (click)="deleteTask(task)"></mat-icon>
+            </td>
+          </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+</div>
+
