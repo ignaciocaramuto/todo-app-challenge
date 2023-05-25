@@ -1,7 +1,8 @@
 export interface Task {
-    id: number;
-    name: string;
-    priority: Priority
+    id: number | null;
+    name: string | null;
+    priority: Priority | null;
+    done: boolean | null
 }
 
 export enum Priority {
