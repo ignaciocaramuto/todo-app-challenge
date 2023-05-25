@@ -18,6 +18,7 @@ export class TodoListComponent implements OnInit {
   });
 
   tasks: Task[] = [];
+  tasksCopy: Task[] = [];
   task!: Task;
 
   lastId!: number | null;
@@ -37,6 +38,7 @@ export class TodoListComponent implements OnInit {
       next: (data) => {
         this.tasks = data;
         this.lastId = this.tasks[this.tasks.length - 1].id;
+        this.tasksCopy = this.tasks;
       },
       error: (error) => console.error(error)
     });
@@ -93,5 +95,9 @@ export class TodoListComponent implements OnInit {
       error: (error) => console.error(error)
     });
     this.getTasks();
+  }
+
+  filterTasks(event: any): void {
+    this.tasks = this.tasksCopy.filter(task => task.name?.toLowerCase().includes(event.target.value));
   }
 }

@@ -1,4 +1,9 @@
 <div class="container">
+    <mat-form-field class="example-full-width">
+      <mat-label>Search a task</mat-label>
+      <input matInput value="" (input)="filterTasks($event)">
+    </mat-form-field>
+
     <form [formGroup]="taskForm" class="" (ngSubmit)="addTask()">
         <mat-form-field class="example-full-width">
           <mat-label>Task to do</mat-label>
