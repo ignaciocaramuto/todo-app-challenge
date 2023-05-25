@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.mat-mdc-checkbox.mat-accent {
+    --mdc-checkbox-selected-checkmark-color: #fff;
+    --mdc-checkbox-selected-focus-icon-color: 	#008000;
+    --mdc-checkbox-selected-hover-icon-color: 	#008000;
+    --mdc-checkbox-selected-icon-color: 		#008000;
+    --mdc-checkbox-selected-pressed-icon-color: #008000; 
+}
+
+.mat-icon {
+    color: #d11a2a;
+    cursor: pointer;
+}
