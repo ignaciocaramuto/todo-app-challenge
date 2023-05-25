@@ -8,7 +8,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
 // Components
-import { TaskComponent } from './components/task/task.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 
 // Angular Material
@@ -21,8 +20,7 @@ import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
-    TodoListComponent,
-    TaskComponent
+    TodoListComponent
   ],
   imports: [
     BrowserModule,
