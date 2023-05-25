@@ -13,7 +13,7 @@ export class TodoListComponent implements OnInit {
   taskForm = new FormGroup ({
     id: new FormControl(2),
     name: new FormControl('', Validators.required),
-    priority: new FormControl(Priority.High),
+    priority: new FormControl(Priority.Medium),
     done: new FormControl(false)
   });
 
@@ -21,6 +21,8 @@ export class TodoListComponent implements OnInit {
   task!: Task;
 
   lastId!: number | null;
+
+  priorities = Object.values(Priority);
 
   displayedColumns: string[] = ['id', 'name', 'priority', 'done', 'actions'];
 
@@ -69,4 +71,27 @@ export class TodoListComponent implements OnInit {
     })
   }
 
+  updateTaskPriority(event: any, task: Task): void {
+    if (event.target.value !== task.priority) {
+      task.priority = event.target.value;
+      this.updateTask(task);
+    }
+  }
+
+  updateTaskDone(event: any, task: Task): void {
+    task.done = event.checked;
+    this.updateTask(task);
+  }
+
+  updateTask(task: Task): void {
+    this.todoListService.editTask(task).subscribe({
+      next: (data) => {
+        if (data) {
+          console.log('Task edited successfully!');
+        }
+      },
+      error: (error) => console.error(error)
+    });
+    this.getTasks();
+  }
 }
