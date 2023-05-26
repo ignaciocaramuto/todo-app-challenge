@@ -1,9 +1,46 @@
 {
   "tasks": [
     {
-      "id": 1,
-      "name": "Finish Cargo Produce challenge",
-      "priority": "High"
+      "id": 2,
+      "name": "Finish Cargo Produce Challenge",
+      "priority": "High",
+      "done": true
+    },
+    {
+      "id": 3,
+      "name": "Wash the dishes",
+      "priority": "Medium",
+      "done": false
+    },
+    {
+      "id": 4,
+      "name": "Read a book",
+      "priority": "Low",
+      "done": false
+    },
+    {
+      "id": 5,
+      "name": "Make breakfast",
+      "priority": "Low",
+      "done": false
+    },
+    {
+      "id": 6,
+      "name": "Workout",
+      "priority": "Medium",
+      "done": false
+    },
+    {
+      "id": 7,
+      "name": "Do my homework",
+      "priority": "Medium",
+      "done": "on"
+    },
+    {
+      "id": 8,
+      "name": "Learn React",
+      "priority": "High",
+      "done": false
     }
   ]
 }
