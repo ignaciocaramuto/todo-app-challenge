@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Priority, Task } from 'src/app/interfaces/task.entities';
 import { TodoListService } from 'src/app/services/todo-list.service';
 
@@ -25,7 +26,7 @@ export class TodoListComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'name', 'priority', 'done', 'actions'];
 
-  constructor(private todoListService: TodoListService) {}
+  constructor(private todoListService: TodoListService, private _snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
     this.getTasks();
@@ -56,10 +57,11 @@ export class TodoListComponent implements OnInit {
             this.getTasks();
             this.taskForm.reset();
             this.taskForm.controls['name'].setErrors(null);
-            console.log('Task added successfully!');
+            this.openSuccessSnackBar('Task added successfully!');
           }
-        }
-      })
+        },
+        error: (error) => this.openFailureSnackBar(error.message)
+      });
     }
   }
 
@@ -67,9 +69,9 @@ export class TodoListComponent implements OnInit {
     this.todoListService.deleteTask(task).subscribe({
       next: () => {
         this.getTasks();
-        console.log('delete task succesfully!');
+        this.openSuccessSnackBar('Task deleted successfully!');
       },
-      error: (error) => console.error(error)
+      error: (error) => this.openFailureSnackBar(error.message)
     })
   }
 
@@ -89,15 +91,33 @@ export class TodoListComponent implements OnInit {
     this.todoListService.editTask(task).subscribe({
       next: (data) => {
         if (data) {
-          console.log('Task edited successfully!');
+          this.getTasks();
+          this.openSuccessSnackBar('Task edited successfully!');
         }
       },
-      error: (error) => console.error(error)
+      error: (error) => this.openFailureSnackBar(error.message)
     });
-    this.getTasks();
   }
 
   filterTasks(event: any): void {
     this.tasks = this.tasksCopy.filter(task => task.name?.toLowerCase().includes(event.target.value));
   }
+
+  openSuccessSnackBar(message: string){
+    this._snackBar.open(message, "OK", {
+      duration: 3000,
+      verticalPosition: 'top',
+      horizontalPosition: 'end',
+      panelClass: 'app-notification-success'
+    });
+  }
+
+  openFailureSnackBar(message: string){
+    this._snackBar.open(message, "OK", {
+      duration: 3000,
+      verticalPosition: 'top',
+      horizontalPosition: 'end',
+      panelClass: 'app-notification-error'
+      });
+    }
 }
