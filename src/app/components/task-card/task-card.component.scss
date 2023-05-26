@@ -1,7 +1,7 @@
 .card {
     height: 80px;
     display: grid;
-    grid-template-columns: 0.5fr 0.5fr 5fr 0.5fr;
+    grid-template-columns: 0.1fr 0.5fr 0.5fr 5fr 0.5fr;
     align-items: center;
     margin-top: 5px;
 }
@@ -45,8 +45,22 @@
 }
 
 .flag {
-    border-left: 1px solid red;
-    height: 100%;
+    height: 60px;
+    margin-right: 1em;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.flag-high {
+    border-left: 3px solid #cc3232;
+}
+
+.flag-medium {
+    border-left: 3px solid #e7b416;
+}
+
+.flag-low {
+    border-left: 3px solid #4EAF60;
 }
 
 .center {
