@@ -54,6 +54,8 @@ export class TodoListComponent implements OnInit {
         next: (data) => {
           if (data) {
             this.getTasks();
+            this.taskForm.reset();
+            this.taskForm.controls['name'].setErrors(null);
             console.log('Task added successfully!');
           }
         }
