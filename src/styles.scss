@@ -1,1 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: grey #DFE9EB;
+}
+
+*::-webkit-scrollbar {
+    width: 10px;
+    width: 10px;
+}
+*::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: #DFE9EB;
+}
+
+*::-webkit-scrollbar-track:active {
+  background-color: #B8C0C2;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: rgb(165, 165, 165);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: grey;
+}
+
+
+.mat-mdc-snack-bar-container {
+  --mat-mdc-snack-bar-button-color: #ffffff;
+  --mdc-snackbar-supporting-text-color: #ffffff;
+
+  &.app-notification-error {
+    --mdc-snackbar-container-color: #f23a2f;
+  }
+
+  &.app-notification-success {
+    --mdc-snackbar-container-color: #009873;
+  }
+}

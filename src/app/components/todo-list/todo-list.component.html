@@ -1,0 +1,33 @@
+<div class="tasks-container">
+  <div class="search">
+    <mat-form-field>
+      <mat-label>Search a task</mat-label>
+      <input matInput value="" (input)="filterTasks($event)">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </div>
+  <div class="body">
+    <span *ngIf="tasks.length === 0" class="no-task-found">No tasks found</span>
+    <div *ngFor="let task of tasks">
+      <app-task-card
+        [task]="task"
+        (deleteTaskEmitter)="deleteTask($event)"
+        (updateTaskPriorityEmitter)="updateTaskPriority($event)"
+        (updateTaskDoneEmitter)="updateTaskDone($event)">
+      </app-task-card>
+      <mat-divider></mat-divider>
+    </div>
+  </div>
+  <div class="footer">
+    <hr>
+    <div class="footer-content">
+      <form [formGroup]="taskForm" (ngSubmit)="addTask()">
+        <mat-form-field class="example-full-width">
+          <mat-label>Task to do</mat-label>
+          <input matInput placeholder="Ex. Wash the dishes" value="" formControlName="name">
+        </mat-form-field>
+        <button mat-raised-button type="submit">Add</button>
+      </form>
+    </div>
+  </div>
+</div>
