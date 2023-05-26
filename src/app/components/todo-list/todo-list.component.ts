@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Priority, Task } from 'src/app/interfaces/task.entities';
 import { TodoListService } from 'src/app/services/todo-list.service';
@@ -12,7 +12,6 @@ import { TodoListService } from 'src/app/services/todo-list.service';
 export class TodoListComponent implements OnInit {
 
   taskForm = new FormGroup ({
-    id: new FormControl(2),
     name: new FormControl('', Validators.required),
     priority: new FormControl(Priority.Medium),
     done: new FormControl(false)
@@ -26,7 +25,10 @@ export class TodoListComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'name', 'priority', 'done', 'actions'];
 
-  constructor(private todoListService: TodoListService, private _snackBar: MatSnackBar) {}
+  constructor(
+    private todoListService: TodoListService,
+    private formBuilder: FormBuilder,
+    private _snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
     this.getTasks();
@@ -56,6 +58,11 @@ export class TodoListComponent implements OnInit {
           if (data) {
             this.getTasks();
             this.taskForm.reset();
+            this.taskForm = this.formBuilder.group({
+              name: new FormControl('', Validators.required),
+              priority: new FormControl(Priority.Medium),
+              done: new FormControl(false)
+            });
             this.openSuccessSnackBar('Task added successfully!');
           }
         },
