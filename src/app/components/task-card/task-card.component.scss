@@ -1,0 +1,75 @@
+.card {
+    height: 80px;
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr 5fr 0.5fr;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.task-name {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+    overflow: hidden;
+    margin-left: 2em;
+    width: calc(100% - 50px);
+}
+
+.tag-priority {
+    color: white;
+    padding: 3px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.option {
+    color: black;
+    background-color: white;
+}
+
+.tag-high {
+    border: 1px solid #E33939;
+    background-color: #cc3232;
+}
+
+.tag-medium {
+    border: 1px solid #F0BA18;
+    background-color: #e7b416;
+}
+
+.tag-low {
+    border: 1px solid #20c42b;
+    background-color: #4EAF60;
+}
+
+.flag {
+    border-left: 1px solid red;
+    height: 100%;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mat-icon {
+    color: rgb(105, 105, 105);
+    cursor: pointer;
+    transition: all 200ms;
+}
+
+.mat-icon:hover {
+    color: #cc3232;
+}
+
+.mat-mdc-checkbox.mat-accent {
+    --mdc-checkbox-selected-checkmark-color: #fff;
+    --mdc-checkbox-selected-focus-icon-color: 	#009873;
+    --mdc-checkbox-selected-hover-icon-color: 	#009873;
+    --mdc-checkbox-selected-icon-color: 		#009873;
+    --mdc-checkbox-selected-pressed-icon-color: #009873;
+    text-align: center;
+}

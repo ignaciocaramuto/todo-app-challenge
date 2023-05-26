@@ -1,0 +1,19 @@
+<div class="card">
+    <mat-checkbox class="example-margin" [checked]="task.done" (change)="updateTaskDone($event)" [matTooltip]="task.done ? 'Mark as undone' : 'Mark as done'"></mat-checkbox>
+    <select 
+        class="tag-priority"
+        [ngClass]="{
+            'tag-high': task.priority === priority.High,
+            'tag-medium': task.priority === priority.Medium,
+            'tag-low': task.priority === priority.Low
+        }"
+        (change)="updateTaskPriority($event)"
+        matTooltip="Priority">
+        <option class="option" *ngFor="let priority of priorities" [selected]="task.priority === priority ? true : false">{{ priority }}</option>
+    </select>
+    <span class="task-name">{{ task.name }}</span>
+    <div class="center">
+        <mat-icon aria-hidden="false" fontIcon="delete" (click)="deleteTask()" matTooltip="Delete task"></mat-icon>
+    </div>
+</div>
+
