@@ -9,13 +9,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 // Components
 import { TodoListComponent } from './components/todo-list/todo-list.component';
+import { TaskCardComponent } from './components/task-card/task-card.component';
 
 // Angular Material
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
-import { TaskCardComponent } from './components/task-card/task-card.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
