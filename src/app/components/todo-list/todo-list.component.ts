@@ -23,8 +23,6 @@ export class TodoListComponent implements OnInit {
 
   lastId!: number | null;
 
-  priorities = Object.values(Priority);
-
   displayedColumns: string[] = ['id', 'name', 'priority', 'done', 'actions'];
 
   constructor(private todoListService: TodoListService) {}
@@ -37,7 +35,7 @@ export class TodoListComponent implements OnInit {
     this.todoListService.getAllTasks().subscribe({
       next: (data) => {
         this.tasks = data;
-        this.lastId = this.tasks[this.tasks.length - 1].id;
+        this.lastId = this.tasks.length === 0 ? 1 : this.tasks[this.tasks.length - 1].id;
         this.tasksCopy = this.tasks;
       },
       error: (error) => console.error(error)
@@ -73,16 +71,16 @@ export class TodoListComponent implements OnInit {
     })
   }
 
-  updateTaskPriority(event: any, task: Task): void {
-    if (event.target.value !== task.priority) {
-      task.priority = event.target.value;
-      this.updateTask(task);
+  updateTaskPriority(event: any): void {
+    if (event.priority !== event.task.priority) {
+      event.task.priority = event.priority;
+      this.updateTask(event.task);
     }
   }
 
-  updateTaskDone(event: any, task: Task): void {
-    task.done = event.checked;
-    this.updateTask(task);
+  updateTaskDone(event: any): void {
+    event.task.done = event.checked;
+    this.updateTask(event.task);
   }
 
   updateTask(task: Task): void {
