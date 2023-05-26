@@ -1,3 +1,5 @@
+@import 'themes';
+
 .card {
     height: 80px;
     display: grid;
@@ -31,17 +33,17 @@
 
 .tag-high {
     border: 1px solid #E33939;
-    background-color: #cc3232;
+    background-color: $high-priority;
 }
 
 .tag-medium {
     border: 1px solid #F0BA18;
-    background-color: #e7b416;
+    background-color: $medium-priority;
 }
 
 .tag-low {
     border: 1px solid #20c42b;
-    background-color: #4EAF60;
+    background-color: $low-priority;
 }
 
 .flag {
@@ -52,15 +54,15 @@
 }
 
 .flag-high {
-    border-left: 3px solid #cc3232;
+    border-left: 3px solid $high-priority;
 }
 
 .flag-medium {
-    border-left: 3px solid #e7b416;
+    border-left: 3px solid $medium-priority;
 }
 
 .flag-low {
-    border-left: 3px solid #4EAF60;
+    border-left: 3px solid $low-priority;
 }
 
 .center {
@@ -76,15 +78,15 @@
 }
 
 .mat-icon:hover {
-    color: #cc3232;
+    color: $high-priority;
 }
 
 .mat-mdc-checkbox.mat-accent {
     --mdc-checkbox-selected-checkmark-color: #fff;
-    --mdc-checkbox-selected-focus-icon-color: 	#009873;
-    --mdc-checkbox-selected-hover-icon-color: 	#009873;
-    --mdc-checkbox-selected-icon-color: 		#009873;
-    --mdc-checkbox-selected-pressed-icon-color: #009873;
+    --mdc-checkbox-selected-focus-icon-color: $success;
+    --mdc-checkbox-selected-hover-icon-color: $success;
+    --mdc-checkbox-selected-icon-color: $success;
+    --mdc-checkbox-selected-pressed-icon-color: $success;
     text-align: center;
     margin-right: 1em;
 }

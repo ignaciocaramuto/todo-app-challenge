@@ -1,3 +1,5 @@
+@import 'themes';
+
 .tasks-container {
     display: flex;
     flex-direction: column;
@@ -29,7 +31,7 @@
 
 .mat-mdc-raised-button:not(:disabled) {
     margin-left: 8px;
-    background-color: #009873;
+    background-color: $success;
     color: white;
 }
 
