@@ -28,9 +28,7 @@ export class TaskCardComponent {
     this.updateTaskPriorityEmitter.emit({task: this.task, priority: event.target.value});
   }
 
-  updateTaskDone(event: any): void {
-    console.log(event.checked);
-    
+  updateTaskDone(event: any): void { 
     this.updateTaskDoneEmitter.emit({task: this.task, checked: event.checked})
   }
 
