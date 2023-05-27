@@ -1,4 +1,4 @@
-<div class="card">
+<div *ngIf="task" class="card">
     <div class="flag" [ngClass]="{
         'flag-high': task.priority === priority.High,
         'flag-medium': task.priority === priority.Medium,
