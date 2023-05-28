@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Node version: 18.15.0
 
-Run `nmp install` to install all dependencies of the project.
+Run `npm install` to install all dependencies of the project.
 
 ## Development server
 
