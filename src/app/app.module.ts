@@ -10,15 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 // Components
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { TaskCardComponent } from './components/task-card/task-card.component';
-
-// Angular Material
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatIconModule } from '@angular/material/icon';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [
@@ -30,15 +22,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatInputModule,
     HttpClientModule,
-    MatButtonModule,
-    MatCheckboxModule,
-    MatIconModule,
     ReactiveFormsModule,
-    MatDividerModule,
-    MatTooltipModule,
-    MatSnackBarModule
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
