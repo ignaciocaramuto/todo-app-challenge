@@ -12,6 +12,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 ## Running JSON Server
 
+Run `npm install -g json-server` to install json-server globally
 Run `json-server --watch db.json` to run demo rest json
 
 ## Running unit tests
