@@ -83,10 +83,10 @@
 
 .mat-mdc-checkbox.mat-accent {
     --mdc-checkbox-selected-checkmark-color: #fff;
-    --mdc-checkbox-selected-focus-icon-color: $success;
-    --mdc-checkbox-selected-hover-icon-color: $success;
-    --mdc-checkbox-selected-icon-color: $success;
-    --mdc-checkbox-selected-pressed-icon-color: $success;
+    --mdc-checkbox-selected-focus-icon-color: #009873;
+    --mdc-checkbox-selected-hover-icon-color: #009873;
+    --mdc-checkbox-selected-icon-color: #009873; // Bug if changed with $success
+    --mdc-checkbox-selected-pressed-icon-color: #009873; 
     text-align: center;
     margin-right: 1em;
 }
