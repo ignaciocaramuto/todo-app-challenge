@@ -23,8 +23,6 @@ export class TodoListComponent implements OnInit {
 
   lastId!: number | null;
 
-  displayedColumns: string[] = ['id', 'name', 'priority', 'done', 'actions'];
-
   constructor(
     private todoListService: TodoListService,
     private formBuilder: FormBuilder,
